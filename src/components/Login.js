@@ -15,9 +15,11 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 import axios from "axios";
-import Firebase from "../model/firebase";
 
+import TopMenu from "./TopMenu.js";
+import Firebase from "../model/firebase";
 import Tab2 from "./signup.js";
+
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
@@ -46,11 +48,16 @@ export default class Example extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
-    const res = await axios.post("http://138.91.0.26:4000/user/signin", user, {
-      headers: {
-        "Content-Type": "application/json"
+    // const res = await axios.post("http://138.91.0.26:4000/user/signin", user, {
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // })
+    const res = {
+      data: {
+        token: 'a.b.c',
       }
-    })
+    };
     if (res.data.token) {
       sessionStorage.setItem('user', res.data.token);
       axios.defaults.headers.common["Authorization"] = `JWT ${res.data.token}`;
@@ -72,6 +79,7 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
+        <TopMenu />
         <Nav tabs>
           <NavItem>
             <NavLink

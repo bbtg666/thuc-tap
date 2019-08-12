@@ -38,11 +38,11 @@ export default class TopMenu extends React.Component {
     });
   }
 
-  Logout() {
-    axios.defaults.headers.common["Authorization"] = "";
-    Firebase.database().ref('islogin').set(0);
-    sessionStorage.clear();
-  }
+  // Logout() {
+  //   axios.defaults.headers.common["Authorization"] = "";
+  //   Firebase.database().ref('islogin').set(0);
+  //   sessionStorage.clear();
+  // }
 
   componentDidMount() {
 
@@ -93,10 +93,11 @@ export default class TopMenu extends React.Component {
               </NavItem>
               <UncontrolledDropdown nav inNavbar className={classNames({hidden: this.state.isLogin===0})}>
                 <DropdownToggle nav caret style={{color: "#000"}}>
-                  {sessionStorage.getItem('user')? jwt.decode(sessionStorage.getItem('user'), 'giang').name : ""}
+                  {/* {sessionStorage.getItem('user')? jwt.decode(sessionStorage.getItem('user'), 'giang').name : ""} */}
+                  quan
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem onClick={this.Logout}>
+                  <DropdownItem onClick={this.props.logout}>
                     Đăng xuất
                     </DropdownItem>
                 </DropdownMenu>
