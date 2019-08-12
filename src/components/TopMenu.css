@@ -1,0 +1,15 @@
+a {
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    color: rgb(24, 10, 10);
+  }
+  
+  .hidden {
+    display: none;
+  }
