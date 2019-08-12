@@ -48,16 +48,11 @@ export default class Example extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
-    // const res = await axios.post("http://138.91.0.26:4000/user/signin", user, {
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-    const res = {
-      data: {
-        token: 'a.b.c',
+    const res = await axios.post("http://13.78.67.3:4000/user/signin", user, {
+      headers: {
+        "Content-Type": "application/json"
       }
-    };
+    })
     if (res.data.token) {
       sessionStorage.setItem('user', res.data.token);
       axios.defaults.headers.common["Authorization"] = `JWT ${res.data.token}`;

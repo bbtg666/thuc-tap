@@ -7,6 +7,7 @@ import AppManager from './app_index';
 import PrivateRoute from './components/protectRoute';
 import Aboutus from './components/about';
 import Home from './components/home';
+// import Logout from './components/logout'
 
 class App extends React.Component {
   render(){

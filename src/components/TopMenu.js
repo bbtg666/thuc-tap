@@ -38,11 +38,6 @@ export default class TopMenu extends React.Component {
     });
   }
 
-  // Logout() {
-  //   axios.defaults.headers.common["Authorization"] = "";
-  //   Firebase.database().ref('islogin').set(0);
-  //   sessionStorage.clear();
-  // }
 
   componentDidMount() {
 
@@ -93,8 +88,7 @@ export default class TopMenu extends React.Component {
               </NavItem>
               <UncontrolledDropdown nav inNavbar className={classNames({hidden: this.state.isLogin===0})}>
                 <DropdownToggle nav caret style={{color: "#000"}}>
-                  {/* {sessionStorage.getItem('user')? jwt.decode(sessionStorage.getItem('user'), 'giang').name : ""} */}
-                  quan
+                  {sessionStorage.getItem('user')? jwt.decode(sessionStorage.getItem('user'), 'giang').name : ""}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem onClick={this.props.logout}>

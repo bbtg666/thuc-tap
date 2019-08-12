@@ -39,7 +39,7 @@ export default class Example extends React.Component {
       phone: this.state.phone,
       name: this.state.name
     }
-    const res = await axios.post("http://52.246.162.234:4000/user/register", user, {
+    const res = await axios.post("http://13.78.67.3:4000/user/register", user, {
       headers: {
         "Content-Type": "application/json"
       }

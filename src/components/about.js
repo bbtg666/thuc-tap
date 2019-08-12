@@ -2,11 +2,14 @@ import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
 
 import TopMenu from "./TopMenu.js";
+import {logout} from './logout'
 
 const Example = (props) => {
   return (
     <div>
-      <TopMenu />
+      <TopMenu logout={()=>{
+        logout(props)
+      }}/>
       <Jumbotron fluid>
         <Container fluid>
           <h1 className="display-3">Nguyễn Trường Giang</h1>
