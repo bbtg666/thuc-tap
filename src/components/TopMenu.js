@@ -15,7 +15,6 @@ import {
 import { Link, Route, Redirect } from "react-router-dom";
 import jwt from "jsonwebtoken"
 import classNames from "classnames";
-import axios from "axios";
 
 
 import Firebase from "../model/firebase";
@@ -40,7 +39,6 @@ export default class TopMenu extends React.Component {
 
 
   componentDidMount() {
-
     Firebase.database()
       .ref("/islogin")
       .on("value", snapshot => {

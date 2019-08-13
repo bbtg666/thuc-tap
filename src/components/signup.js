@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import Firebase from "../model/firebase";
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -45,10 +46,14 @@ export default class Example extends React.Component {
       }
     })
     if(res.data.result === "failed") {
-      alert('Email đã được sử dụng hoặc lỗi hệ thống!!!!')
+      alert('Email hoặc mã xe đã được sử dụng hoặc lỗi hệ thống!!!!')
     }
     else {
       alert('Bạn đã đăng kí thành công!!');
+      Firebase.database().ref(this.state.email.split("@")[0]).set({
+        lat: 0,
+        lng: 0
+      });
     }
   }
 

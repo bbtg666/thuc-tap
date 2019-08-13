@@ -19,6 +19,7 @@ import axios from "axios";
 import TopMenu from "./TopMenu.js";
 import Firebase from "../model/firebase";
 import Tab2 from "./signup.js";
+import {LocationContext} from "../context/LocationContext"
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -30,7 +31,8 @@ export default class Example extends React.Component {
     this.state = {
       activeTab: "1",
       email: "",
-      password: ""
+      password: "",
+      abc: ""
     };
   }
 
@@ -72,6 +74,7 @@ export default class Example extends React.Component {
     }
   }
   render() {
+    console.log(this.state.abc)
     return (
       <div>
         <TopMenu />
@@ -129,12 +132,16 @@ export default class Example extends React.Component {
                         required
                       />
                     </FormGroup>
-                    <Button
+                    <LocationContext>
+                    {({handleGetLoca}) => <Button
+                    type="submit"
+                    onClick={()=> handleGetLoca(this.state)}
                       className="mt-3"
                       style={{ width: "120px" }}
                     >
                       Đăng nhập
-                    </Button>
+                    </Button>}
+                    </LocationContext>
                   </Form>
                 </div>
               </Col>

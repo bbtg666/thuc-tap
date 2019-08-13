@@ -7,20 +7,23 @@ import AppManager from './app_index';
 import PrivateRoute from './components/protectRoute';
 import Aboutus from './components/about';
 import Home from './components/home';
-// import Logout from './components/logout'
+
+import { LocationProvider } from "./context/LocationContext"
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <div className="App">
-        <Router>
+        <LocationProvider>
+          <Router>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/aboutus" exact component={Aboutus} />
               <Route path="/login" exact component={Login} />
               <PrivateRoute path="/live" exact component={AppManager} />
             </Switch>
-        </Router>
+          </Router>
+        </LocationProvider>
       </div>
     );
   }
